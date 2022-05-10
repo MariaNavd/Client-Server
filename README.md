@@ -1,11 +1,11 @@
 # Client-Server
 
-Приложение состоит из двух частей — серверной (Server): [server.cpp](https://github.com/MariaNavd/Client-Server_draft/blob/master/Server/server.cpp), [main.cpp](https://github.com/MariaNavd/Client-Server_draft/blob/master/Server/main.cpp) и клиентской (Client): [client.cpp](https://github.com/MariaNavd/Client-Server_draft/blob/master/Client/client.cpp), [main.cpp](https://github.com/MariaNavd/Client-Server_draft/blob/master/Client/main.cpp). Взаимодействие между процессами осуществляется с помощью разделяемой памяти.
+Приложение состоит из двух частей — серверной **Server**: [server.cpp](https://github.com/MariaNavd/Client-Server/blob/master/Server/server.cpp), [main.cpp](https://github.com/MariaNavd/Client-Server/blob/master/Server/main.cpp) и клиентской **Client**: [client.cpp](https://github.com/MariaNavd/Client-Server/blob/master/Client/client.cpp), [main.cpp](https://github.com/MariaNavd/Client-Server/blob/master/Client/main.cpp). Взаимодействие между процессами осуществляется с помощью разделяемой памяти.
 
 ### Функционал сервера
 * Создание средства взаимодействия — разделяемой памяти. Доступ к памяти (чтение/запись) регулируется семафорами.
-* Ведение журнала событий (journal.log).
-* Обработка запросов клиента — взаимодействие с "базой данных" сотрудников (Data): [data.cpp](https://github.com/MariaNavd/Client-Server_draft/blob/master/Server/Data/data.cpp).
+* Ведение журнала событий **journal.log**.
+* Обработка запросов клиента — взаимодействие с "базой данных" сотрудников **Data**: [data.cpp](https://github.com/MariaNavd/Client-Server/blob/master/Server/Data/data.cpp).
   
   Сервер может обрабатывать следующие запросы:
   
@@ -46,14 +46,14 @@
 ./server [--timeout $TIMEOUT_VAL] 
 
 дополнительные параметры:
---timeout $TIMEOUT_VAL    максимальное время ожидания сообщения от сервера (с)
+--timeout $TIMEOUT_VAL    максимальное время ожидания сообщения от клиента (сек)
 ```
-После запуска сервера можно запускать клиент:
+После запуска сервера запускается клиент:
 ```
 ./client [--with-sleep $SLEEP_TIME_VAL] 
 
 дополнительные параметры:
---with-sleep $SLEEP_TIME_VAL    время в течение в=которого клиент не отправляет сообщения, но продолжает работу (с)
+--with-sleep $SLEEP_TIME_VAL    время в течение которого клиент не отправляет сообщения серверу, но продолжает работу (сек)
 ```
 
 #### Пример работы
